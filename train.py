@@ -17,6 +17,9 @@ data=SEGData()
 dataloader = DataLoader(data, batch_size=BATCH_SIZE, shuffle=True,num_workers=0,drop_last=True)
 summary=SummaryWriter(r'Log')
 EPOCH=1000
+print('load net')
+net.load_state_dict(torch.load('SAVE/Unet.pt'))
+print('load success')
 for epoch in range(EPOCH):
     print('开始第{}轮'.format(epoch))
     net.train()
